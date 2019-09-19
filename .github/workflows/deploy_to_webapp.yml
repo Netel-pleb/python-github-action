@@ -1,0 +1,28 @@
+name: Deploy a Django app to App Service
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install modules and zip the project files
+      run: |
+       pip install -r requirements.txt
+       zip -r myapp.zip
+  
+    # Tag the image with the git commit hash
+    - run: |
+        docker build . -t jasonfreeberg/dockerspringdemo:${{ github.sha }}
+        docker push jasonfreeberg/dockerspringdemo:${{ github.sha }}
+
+    # Finally, deploy the app to App Service
+   # - uses: azure/appservice-actions/webapp@master
+   #   with:
+   #     app-name: python-ignite-demo
+   #     publish-profile: ${{ secrets.<publish-profile> }}
+   #     package: './myapp.zip'
+   
