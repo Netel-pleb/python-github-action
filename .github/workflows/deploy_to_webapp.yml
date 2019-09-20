@@ -6,13 +6,14 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
+
     - name: Install modules and zip the project files
       run: |
-       pip install -r requirements.txt
-       zip -r myapp.zip
+       pip3 install -r requirements.txt
+       zip -r myapp.zip 
 
     # Finally, deploy the app to App Service
     - uses: azure/appservice-actions/webapp@master
