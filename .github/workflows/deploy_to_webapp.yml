@@ -11,14 +11,14 @@ jobs:
     - uses: actions/checkout@v1
 
     #- run: yes | sudo apt install python3.7
-    #- run: sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
+    - run: sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
     - run: python3 -m pip install --upgrade pip
     - run: python3 --version
     #- run: python --version
 
     - name: Install modules and zip the project files
       run: |
-       python3.7 -m pip install -r requirements.txt
+       python3 -m pip install -r requirements.txt
        zip -r myapp.zip 
 
     # Finally, deploy the app to App Service
