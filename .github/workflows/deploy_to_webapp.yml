@@ -10,6 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - run: python3 -m pip install --upgrade pip
     - run: python3 --version
     - run: python --version
     - run: pip3 --version
