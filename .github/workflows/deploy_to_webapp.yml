@@ -10,12 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    #- run: yes | sudo apt install python3.7
-    #- run: sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
-    #- run: python3 -m pip install --upgrade pip
-    #- run: python3 --version
-    #- run: python --version
-
     # https://github.com/actions/setup-python
     - uses: actions/setup-python@v1
       with:
@@ -24,6 +18,7 @@ jobs:
 
     - name: Install modules and zip the project files
       run: |
+       sudo apt-get install libmysqlclient-dev python-dev
        python3 -m pip install -r requirements.txt
        zip -r myapp.zip 
 
