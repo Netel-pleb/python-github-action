@@ -10,6 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
+    - run: python3 --version
+    - run: python --version
+    - run: pip3 --version
+
     - name: Install modules and zip the project files
       run: |
        pip3 install -r requirements.txt
