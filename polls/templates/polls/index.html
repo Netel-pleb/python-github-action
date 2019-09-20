@@ -9,13 +9,19 @@
             </p>
             <p>
                 <a class="btn btn-primary my-2" href="https://azure.github.io/AppService/2019/08/10/Github-actions-for-webapps.html">Announcement Post</a>
-                <a class="btn btn-secondary my-2" href="#">Example code</a>
+                <a class="btn btn-secondary my-2" href="https://github.com/JasonFreeberg/Python-GitHub-Action">Source Code</a>
             </p>
         </div>
     </section>
 
     <div class="container">
     {% if latest_question_list %}
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Poll Questions:</h3>
+                <br>
+            </div>
+        </div>
         <div class="row">
             {% for question in latest_question_list %}
                 <div class="col-md-4">
@@ -24,8 +30,7 @@
                             <p class="card-text">{{ question.question_text }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="/{{ question.id }}/"><button class="btn btn-sm btn-outline-secondary" type="button">View</button></a>
-                                    <!--<button class="btn btn-sm btn-outline-secondary" type="button" href="">Edit</button>-->
+                                    <a href="/{{ question.id }}/"><button class="btn btn-sm btn-outline-secondary" type="button">View poll</button></a>
                                 </div>
                                 <small class="text-muted">{{ question.pub_date|date:"l, M Y" }}</small>
                             </div>
