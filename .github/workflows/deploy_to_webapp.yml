@@ -13,16 +13,10 @@ jobs:
       run: |
        pip install -r requirements.txt
        zip -r myapp.zip
-  
-    # Tag the image with the git commit hash
-    - run: |
-        docker build . -t jasonfreeberg/dockerspringdemo:${{ github.sha }}
-        docker push jasonfreeberg/dockerspringdemo:${{ github.sha }}
 
     # Finally, deploy the app to App Service
-   # - uses: azure/appservice-actions/webapp@master
-   #   with:
-   #     app-name: python-ignite-demo
-   #     publish-profile: ${{ secrets.<publish-profile> }}
-   #     package: './myapp.zip'
-   #test
+    - uses: azure/appservice-actions/webapp@master
+      with:
+        app-name: pythonignite2019
+        publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+        package: './myapp.zip'
