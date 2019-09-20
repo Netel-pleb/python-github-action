@@ -10,17 +10,18 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    # https://github.com/actions/setup-python
+    # Set Python version (https://github.com/actions/setup-python)
     - uses: actions/setup-python@v1
       with:
-        python-version: '3.7.4' # Version range or exact version of a Python version to use, using semvers version range syntax.
-        architecture: 'x64' # (x64 or x86)
+        python-version: '3.7.4' 
+        architecture: 'x64' 
 
     - name: Install modules and zip the project files
       run: |
-       sudo apt-get install libmysqlclient-dev python-dev
+       sudo apt-get install libmysqlclient-dev python-dev # C library for MySQL
        python3 -m pip install -r requirements.txt
-       zip -r myapp.zip 
+       ls
+       zip -r myapp.zip .
 
     # Finally, deploy the app to App Service
     - uses: azure/appservice-actions/webapp@master
