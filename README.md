@@ -1,18 +1,16 @@
-# Deploy Django app to Azure App Service on Linux using Visual Studio Code
+# Deploy Django app to Azure App Service on Linux using GitHub Actions
 
-This django app is created following the [official django tutorial](https://docs.djangoproject.com/en/2.2/intro/tutorial01/). Added a welcome app to serve the website homepage.
+This app is based off the [official django tutorial](https://docs.djangoproject.com/en/2.2/intro/tutorial01/). Using GitHub Actions, we can deploy this app directly to App Service after changes are pushed to the repo.
 
 ## Prerequisites
 
 1. You need an Azure subscription to complete the tutorial. You can create a free account to start with: https://azure.microsoft.com/en-us/free/.  
 
+1. You need to create a Python 3.7 Linux Web App.
+
 1. This web app requires a MySQL Server (`django.db.backends.mysql`) as the backend, you can also use PostgreSQL server as the backend. You can easily create a Azure Database for MySQL using Azure portal https://ms.portal.azure.com/#create/Microsoft.MySQLServer.
 
-1. This tutorial uses Visual Studio Code as code editor and deployment too. You can download VSCode for free from https://code.visualstudio.com/download. 
-
-1. Follow the [getting-started instructions](https://code.visualstudio.com/tutorials/app-service-extension/getting-started) to install VSCode App Service Extension.
-
-### Prep the code
+## Prep the code
 
 1. Get the source code onto your dev machine:
 
@@ -59,9 +57,9 @@ This django app is created following the [official django tutorial](https://docs
     py manage.py runserver
     ```
 
-### Update database connect string
+## Update database connection strings
 
-Please update the [settings.py](/mydjangoproject/settings.py) file to include your own database connection string.
+The app currently uses a local SQLite database for local dev and test. You can deploy it with this, or wire it up to a proper MySQL database by editing [settings.py](/mydjangoproject/settings.py) to include your own database connection strings.
 
 ```python
 DATABASES = {
@@ -75,6 +73,6 @@ DATABASES = {
 }
 ```
 
-### Deploy the django app to Linux App Service
+## Deploy the django app to Linux App Service
 
-Follow the [instructions](https://code.visualstudio.com/tutorials/app-service-extension/deploy-app) to create a new web app and deploy the django app to Linux App Service.
+Finally, get your Publish Profile of your webapp from the Azure Portal and add it as a secret in the GitHub web UI. The secret should be named "PUBLISH_PROFILE", to match the string in the workflow YAML.
