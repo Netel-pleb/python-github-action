@@ -1,9 +1,46 @@
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+{% extends "polls/base.html" %}
+
+{%block content%}
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Ignite 2019</h1>
+            <p class="lead text-muted">
+                With GitHub Actions, you can continuously build, test, and deploy your code or container to App Service. [Insert something about VNet here?]
+            </p>
+            <p>
+                <a class="btn btn-primary my-2" href="https://azure.github.io/AppService/2019/08/10/Github-actions-for-webapps.html">Announcement Post</a>
+                <a class="btn btn-secondary my-2" href="#">Example code</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+    {% if latest_question_list %}
+        <div class="row">
+            {% for question in latest_question_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <p class="card-text">{{ question.question_text }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="/{{ question.id }}/"><button class="btn btn-sm btn-outline-secondary" type="button">View</button></a>
+                                    <!--<button class="btn btn-sm btn-outline-secondary" type="button" href="">Edit</button>-->
+                                </div>
+                                <small class="text-muted">{{ question.pub_date|date:"l, M Y" }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="row">
+            <div class="col">
+                <h2>No questions found.</h2>
+            </div>
+        </div>
+    {% endif %}
+    </div>
+
+{% endblock %}

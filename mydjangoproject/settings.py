@@ -76,15 +76,25 @@ WSGI_APPLICATION = 'mydjangoproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# Add your database connection strings here. Comment out the SQLite DB below.
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': '<database name>',
+#         'USER': '<database user name>',
+#         'PASSWORD': 'database password',
+#         'HOST': 'database host',
+#      }
+# }
+
+# Database for local testing/development. Comment this out for deployment
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<database name>',
-        'USER': '<database user name>',
-        'PASSWORD': 'database password',
-        'HOST': 'database host',
-     }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+    }
 }
+
 
 
 # Password validation

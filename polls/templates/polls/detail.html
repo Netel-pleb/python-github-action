@@ -1,12 +1,32 @@
-<h1>{{ question.question_text }}</h1>
+{% extends "polls/base.html" %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block content %}
+<div class="jumbotron">
+    <div class="container">
+        {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+        {% endif %}
+        <h2 class="display-3">Question:</h2>
+        <h4>{{question.question_text}}</h4>
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-{% endfor %}
-<input type="submit" value="Vote">
-</form>
+        {% if question.choice_set.all %}
+            <h2 class="display-3">Choices:</h2>
+            <form action="{% url 'polls:vote' question.id %}" method="post">
+                {% csrf_token %}
+                
+                {% for choice in question.choice_set.all %}
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                {% endfor %}
+                <input type="submit" value="Vote">
+            </form>
+        {% else %}
+            <br>
+            <h3>Uh-oh! The admin has not added any choices for this question.</h3>
+            <p>Check back later!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
