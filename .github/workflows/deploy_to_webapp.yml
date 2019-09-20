@@ -19,8 +19,8 @@ jobs:
     # https://github.com/actions/setup-python
     - uses: actions/setup-python@v1
       with:
-      python-version: '3.7.4' # Version range or exact version of a Python version to use, using semvers version range syntax.
-      architecture: 'x64' # (x64 or x86)
+        python-version: '3.7.4' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # (x64 or x86)
 
     - name: Install modules and zip the project files
       run: |
