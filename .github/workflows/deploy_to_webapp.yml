@@ -19,15 +19,15 @@ jobs:
     - name: Install modules and zip the project files
       run: |
         sudo apt-get install libmysqlclient-dev python-dev # C library for MySQL
-        python3 -m pip install -r requirements.txt
-        #zip -r myapp.zip .
+        python3 -m venv antenv
+        source antenv/bin/activate
+        pip install -r requirements.txt
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
         app-name: pythonignite2019
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-        #package: './myapp.zip'
 
         # Startup script: 
-        # apt-get install -y gcc && pip3 install -r requirements.txt && gunicorn --bind=0.0.0.0 --timeout 600 mydjango.wsgi
+        # apt-get install -y gcc && pip3 install -r requirements.txt && gunicorn --bind=0.0.0.0 --timeout 600 mydjangoproject.wsgi
