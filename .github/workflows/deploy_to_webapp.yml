@@ -19,8 +19,8 @@ jobs:
     - name: Install modules and zip the project files
       run: |
         sudo apt-get install libmysqlclient-dev python-dev # C library for MySQL
-        #python3 -m venv antenv
-        #source antenv/bin/activate
+        python3 -m venv env
+        source antenv/bin/activate
         pip install -r requirements.txt
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
