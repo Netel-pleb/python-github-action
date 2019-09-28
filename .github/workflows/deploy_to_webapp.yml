@@ -31,5 +31,5 @@ jobs:
         app-name: pythonignite2019
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
 
-        # Startup script: 
+        ## Startup script: 
         # apt-get install -y gcc && pip3 install -r requirements.txt && gunicorn --bind=0.0.0.0 --timeout 600 mydjangoproject.wsgi
