@@ -20,6 +20,7 @@ jobs:
       run: |
         sudo apt-get install libmysqlclient-dev python-dev # C library for MySQL
         #python3 -m venv antenv
+        pip3 install virtualenv 
         virtualenv antenv
         source antenv/bin/activate
         pip install -r requirements.txt
