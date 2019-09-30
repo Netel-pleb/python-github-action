@@ -78,13 +78,23 @@ WSGI_APPLICATION = 'mydjangoproject.wsgi.application'
 # Add your database connection strings here. Comment out the SQLite DB below.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pollsAppDatabase',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pollsappdatabase',
         'USER': os.getenv('DATABASE_USERNAME'),
         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': os.getenv('DATABASE_HOST'),
      }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'pollsAppDatabase',
+#         'USER': os.getenv('DATABASE_USERNAME'),
+#         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+#         'HOST': os.getenv('DATABASE_HOST'),
+#      }
+# }
 
 # Database for local testing/development. Comment this out for deployment
 # DATABASES = {
