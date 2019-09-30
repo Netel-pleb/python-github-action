@@ -18,11 +18,7 @@ jobs:
 
     - name: Install modules and zip the project files
       run: |
-        #sudo apt-get install libmysqlclient-dev python-dev # C library for MySQL
-        #pip3 install virtualenv 
-        #virtualenv antenv
-        
-        sudo apt-get install libpq-dev
+        #sudo apt-get install libpq-dev
         python3 -m venv antenv
         source antenv/bin/activate
         pip install -r requirements.txt
