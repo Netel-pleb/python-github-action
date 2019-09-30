@@ -18,9 +18,8 @@ jobs:
 
     - name: Install modules
       run: |
-        #sudo apt-get install libpq-dev
-        #python3 -m venv antenv
-        #source antenv/bin/activate
+        python3 -m venv antenv
+        source antenv/bin/activate
         pip install -r requirements.txt
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
