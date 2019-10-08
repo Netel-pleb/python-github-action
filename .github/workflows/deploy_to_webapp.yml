@@ -26,4 +26,4 @@ jobs:
     - uses: azure/webapps-deploy@v1
       with:
         app-name: pythonignite2019
-        publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+        publish-profile: ${{ secrets.NEWPYTHONAPPFREEBERG }}
