@@ -1,4 +1,4 @@
-name: Deploy a Django app to App Service
+name: Deploy a Django app to App Service #touch
 
 on: [push]
 
