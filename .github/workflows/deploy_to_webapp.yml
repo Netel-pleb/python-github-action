@@ -16,12 +16,12 @@ jobs:
         python-version: '3.7.4' 
         architecture: 'x64' # What's our bitness on Linux?
 
-    - name: Install modules
-      run: |
-        # Trying to just deploy source
-        #python3 -m venv antenv
-        #source antenv/bin/activate
-        #pip install -r requirements.txt
+#     - name: Install modules
+#       run: |
+#         # Trying to just deploy source
+#         #python3 -m venv antenv
+#         #source antenv/bin/activate
+#         #pip install -r requirements.txt
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
