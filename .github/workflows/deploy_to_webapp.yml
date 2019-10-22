@@ -18,9 +18,10 @@ jobs:
 
     - name: Install modules
       run: |
-        python3 -m venv antenv
-        source antenv/bin/activate
-        pip install -r requirements.txt
+        # Trying to just deploy source
+        #python3 -m venv antenv
+        #source antenv/bin/activate
+        #pip install -r requirements.txt
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
