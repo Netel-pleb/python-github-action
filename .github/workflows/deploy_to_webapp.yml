@@ -14,7 +14,7 @@ jobs:
     - uses: actions/setup-python@v1
       with:
         python-version: '3.7.4' 
-        architecture: 'x64' # What's our bitness on Linux?
+        architecture: 'x64'
 
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
