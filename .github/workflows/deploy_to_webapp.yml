@@ -1,9 +1,9 @@
-name: Deploy a Django app to App Service #touch
+name: Deploy a Django app to App Service
 
-on: [push]
+on: push
 
 jobs:
-  build:
+  build-n-deploy:
 
     runs-on: ubuntu-latest
 
@@ -16,8 +16,17 @@ jobs:
         python-version: '3.7.x' 
         architecture: 'x64'
 
+    - name: Build using AppService-Build
+      uses: azure/appservice-build@v1
+      with:
+        platform: python
+
+    - run: ls
+
+    - run: ls -a
+
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
-        app-name: pythonignite2019
-        publish-profile: ${{ secrets.NEWPYTHONAPPFREEBERG }}
+        app-name: pythonfreeberg
+        publish-profile: ${{ secrets.PYTHONFREEBERG_CREDS }}
