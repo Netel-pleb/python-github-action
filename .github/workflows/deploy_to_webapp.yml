@@ -24,5 +24,5 @@ jobs:
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
-        app-name: pythonfreeberg
-        publish-profile: ${{ secrets.PYTHONFREEBERG_CREDS }}
+        app-name: freebergPythonOryx
+        publish-profile: ${{ secrets.PUB_PROF_ORYX_ACTION }}
