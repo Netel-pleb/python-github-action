@@ -25,4 +25,4 @@ jobs:
     - uses: azure/webapps-deploy@v1
       with:
         app-name: freebergPythonOryx
-        publish-profile: ${{ secrets.PUB_PROF_ORYX_ACTION }}
+        publish-profile: ${{ secrets.PUB_PROF_ORYX_WEBAPP }}
