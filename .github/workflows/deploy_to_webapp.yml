@@ -21,10 +21,6 @@ jobs:
       with:
         platform: python
 
-    - run: ls
-
-    - run: ls -a
-
     # Finally, deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
