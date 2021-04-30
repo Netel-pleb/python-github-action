@@ -3,3 +3,6 @@ venv/
 db.sqlite3
 notes/
 env/
+
+*/__pycache__/**
+*/*/__pycache__/**
