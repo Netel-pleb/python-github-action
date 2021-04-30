@@ -8,24 +8,24 @@ This app is based off the [official django tutorial](https://docs.djangoproject.
 
 1. You need to create a Python 3.7 Linux Web App.
 
-1. This web app requires a MySQL Server (`django.db.backends.mysql`) as the backend, you can also use PostgreSQL server as the backend. You can easily create a Azure Database for MySQL using Azure portal https://ms.portal.azure.com/#create/Microsoft.MySQLServer.
+1. This web app requires a MySQL Server (`django.db.backends.mysql`) as the backend. You can easily create a Azure Database for MySQL using Azure portal https://ms.portal.azure.com/#create/Microsoft.MySQLServer.
 
 ## Prep the code
 
 1. Get the source code onto your dev machine:
 
     ```shell
-    git clone https://github.com/yiliaomsft/pycon19-django.git 
+    git clone https://github.com/JasonFreeberg/Python-GitHub-Action.git
     ```
 
-1. Load the local source code repo into VSCode:
+2. Load the local source code repo into VSCode:
 
     ```shell
-    cd pycon19-django
-    code
+    cd Python-GitHub-Action
+    code .
     ```
 
-1. Create a virtual environment
+3. Create a virtual environment
 
     ```shell
     # Linux/MacOS:
@@ -35,13 +35,9 @@ This app is based off the [official django tutorial](https://docs.djangoproject.
     py -m venv venv
     ```
 
-1. Install modules
+    VSCode will ask *"We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"* Accept this prompt for better code completion.
 
-    ```shell
-    pip3 install -r requirements.txt
-    ```
-
-1. Start the virtual environment
+4. Start the virtual environment
 
     ```shell
     # Linux/MacOS
@@ -51,10 +47,23 @@ This app is based off the [official django tutorial](https://docs.djangoproject.
     .\venv\Scripts\activate
     ```
 
-1. Start the app locally
+5. Install modules
 
     ```shell
-    py manage.py runserver
+    pip install -r requirements.txt
+    ```
+
+6. Set up SQLite database
+
+    ```shell
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+7. Start the app locally
+
+    ```shell
+    python manage.py runserver
     ```
 
 ## Update database connection strings

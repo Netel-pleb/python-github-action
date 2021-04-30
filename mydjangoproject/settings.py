@@ -75,17 +75,7 @@ WSGI_APPLICATION = 'mydjangoproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'pollsAppDatabase',
-#         'USER': os.getenv('DATABASE_USERNAME'),
-#         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-#         'HOST': os.getenv('DATABASE_HOST'),
-#      }
-# }
-
-# Database for local testing/development. Comment this out for deployment
+# Database for local testing/development.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
